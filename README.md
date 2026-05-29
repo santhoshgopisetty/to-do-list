@@ -4,13 +4,13 @@ A modern, highly responsive, and beautiful To-Do List web application featuring 
 
 ## Features
 
-- ✨ **Rich Modern Aesthetics**: Built using curated, warm pastel colors, sleek shadows, rounded cards, and smooth micro-animations.
-- 📱 **Fully Responsive Layout**: Fully optimized with CSS Flexbox, Grid, and Media Queries to render beautifully on mobile phones, tablets, and desktop monitors.
-- 🌗 **Premium Dark Mode**: Seamless, animated transitions between a warm cream light mode and a modern midnight dark mode.
-- ⚡ **Local Storage Persistence**: Automatically saves your tasks list and theme preference so they survive browser refreshes and sessions.
-- 📊 **Priority Categorization**: Color-coded badges to sort tasks by priority (Low, Medium, High).
-- 🔍 **Status Filtering**: Instantly filter your list by **All**, **Active**, and **Completed** tasks.
-- 🗑️ **Interactive Controls**: Hover-revealed delete buttons (visible by default on mobile touchscreens) and clean custom-designed circular checkboxes.
+- **Rich Modern Aesthetics**: Built using curated, warm pastel colors, sleek shadows, rounded cards, and smooth micro-animations.
+- **Fully Responsive Layout**: Fully optimized with CSS Flexbox, Grid, and Media Queries to render beautifully on mobile phones, tablets, and desktop monitors.
+- **Premium Dark Mode**: Seamless, animated transitions between a warm cream light mode and a modern midnight dark mode.
+- **Local Storage Persistence**: Automatically saves your tasks list and theme preference so they survive browser refreshes and sessions.
+- **Priority Categorization**: Color-coded badges to sort tasks by priority (Low, Medium, High).
+- **Status Filtering**: Instantly filter your list by **All**, **Active**, and **Completed** tasks.
+- **Interactive Controls**: Hover-revealed delete buttons (visible by default on mobile touchscreens) and clean custom-designed circular checkboxes.
 
 ## Technologies Used
 
