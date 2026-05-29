@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-list</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <div class="left">
+                <h1>Good morning</h1>
+                <p>You have <strong>0</strong> tasks remaining.</p>
+            </div>
+            <button class="theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon h-5 w-5" aria-hidden="true">
+                    <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="ip">
+            <span class="plus">+</span>
+            <input type="text" id="task-input" placeholder="What needs your attention?" autocomplete="off">
+
+            <div class="select-wrapper">
+                <div class="select-btn" onclick="toggleDropdown()">
+                    <span id="selected-label">High</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+                <div class="dropdown" id="dropdown">
+                    <div class="option" onclick="selectOption(this)">Low</div>
+                    <div class="option" onclick="selectOption(this)">Medium</div>
+                    <div class="option active" onclick="selectOption(this)">High</div>
+                </div>
+            </div>
+            <select name="level" id="level" hidden>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High" selected>High</option>
+            </select>
+        </div>
+        <div class="filter">
+            <button class="filter-btn active" onclick="filterTasks(this)">All</button>
+            <button class="filter-btn" onclick="filterTasks(this)">Active</button>
+            <button class="filter-btn flt" onclick="filterTasks(this)">Completed</button>
+        </div>
+        <main class="todo-main">
+            <ul id="todo-list" class="todo-list">
+                <!-- Rendered via JavaScript -->
+            </ul>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <svg class="empty-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
+                </svg>
+                <p class="empty-text">No tasks found. Add some above!</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

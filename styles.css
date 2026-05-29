@@ -1,0 +1,636 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FBF9F4;
+    display: flex;
+    justify-content: center;
+}
+
+::selection {
+    background: hsla(35, 100%, 83%, 0.573);
+}
+
+.root {
+    margin-top: 100px;
+    width: 100%;
+    max-width: 648px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.left {
+    flex: 1;
+}
+
+.left>h1 {
+    padding-bottom: 15px;
+}
+
+.theme {
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    padding-top: 20px;
+}
+
+.ip>input {
+    border: none;
+    background-color: transparent;
+}
+
+.ip>select {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    height: 40px;
+    padding: 10px;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+input:focus,
+.ip>select {
+    outline: none;
+}
+
+.ip {
+    display: flex;
+    flex: 0.9;
+    border: 2px solid transparent;
+    background-color: rgb(255, 255, 255);
+    height: 55px;
+    border-radius: 15px;
+    align-items: center;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.ip:focus-within {
+    border-color: #e09443;
+}
+
+.ip:focus-within>span {
+    color: #e09443;
+    transition: color 0.2s ease-in-out;
+}
+
+.ip>input {
+    flex: 1;
+}
+
+.ip>span {
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    padding-bottom: 4px;
+}
+
+.select-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 120px;
+    margin-right: 10px;
+    box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: small;
+    font-weight: 400;
+}
+
+.select-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 20px;
+    height: 40px;
+    font-size: 15px;
+    color: #3d3f52;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.select-btn svg {
+    color: #babcca;
+}
+
+.dropdown {
+    display: none;
+    color: #3d3f52;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: -30px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+    min-width: 150px;
+    z-index: 100;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.dropdown.open {
+    display: block;
+}
+
+.option {
+    padding: 14px 10px;
+    font-size: 15px;
+    color: #3d3f52;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.option:hover {
+    background-color: #f5f2ed;
+}
+
+.option.active {
+    font-weight: 500;
+}
+
+.option.active::after {
+    content: "✓";
+    font-size: 15px;
+    color: #3d3f52;
+}
+
+.filter {
+    margin-top: 35px;
+    display: flex;
+    width: fit-content;
+    height: 35px;
+    justify-content: space-around;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    border-radius: 15px;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.filter>button {
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.filter-btn.active {
+    box-shadow: 0px 4px 15px rgba(0, 0, 2, 0.1);
+    border-radius: 14px;
+    background-color: #f0ede8;
+}
+
+/* ==========================================
+   To-Do Items & List Styling
+   ========================================== */
+.todo-main {
+    margin-top: 30px;
+    padding-bottom: 60px;
+}
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    height: 55px;
+    border-radius: 15px;
+    padding: 0 20px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.3s ease;
+}
+
+.todo-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: #f0ede8;
+}
+
+/* Checkbox Button */
+.checkbox-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #cccbc6;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox-btn:hover {
+    border-color: #e09443;
+}
+
+.checkbox-btn.checked {
+    background-color: #e09443;
+    border-color: #e09443;
+}
+
+.checkbox-btn.checked::after {
+    content: "";
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+/* Todo Text */
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    color: #3d3f52;
+    transition: color 0.3s ease, opacity 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* Metadata and priority badges */
+.todo-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.priority-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.priority-badge.low {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.priority-badge.medium {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+
+.priority-badge.high {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #babcca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.todo-item:hover .delete-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.delete-btn:hover {
+    color: #dc2626;
+    background-color: #fee2e2;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+    color: #babcca;
+    transition: color 0.3s ease;
+}
+
+.empty-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #7f8194;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================
+   Dark Mode Styles
+   ========================================== */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #121214;
+    color: #e2e8f0;
+}
+
+body.dark-mode .left>h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .left>p {
+    color: #a0aec0;
+}
+
+body.dark-mode .theme {
+    color: #ffffff;
+}
+
+body.dark-mode .ip {
+    background-color: #1e1e24;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .ip>input {
+    color: #ffffff;
+}
+
+body.dark-mode .ip>input::placeholder {
+    color: #5a5c6c;
+}
+
+body.dark-mode .select-btn {
+    color: #e2e8f0;
+}
+
+body.dark-mode .dropdown {
+    background-color: #1e1e24;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .option {
+    color: #e2e8f0;
+}
+
+body.dark-mode .option:hover {
+    background-color: #2b2b35;
+}
+
+body.dark-mode .option.active::after {
+    color: #ffffff;
+}
+
+body.dark-mode .filter {
+    background-color: #1e1e24;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .filter-btn {
+    color: #a0aec0;
+}
+
+body.dark-mode .filter-btn.active {
+    background-color: #2b2b35;
+    color: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .todo-item {
+    background-color: #1e1e24;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .todo-item:hover {
+    border-color: #3d3d4a;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .todo-text {
+    color: #e2e8f0;
+}
+
+body.dark-mode .checkbox-btn {
+    border-color: #4e5066;
+}
+
+body.dark-mode .delete-btn {
+    color: #64748b;
+}
+
+body.dark-mode .delete-btn:hover {
+    color: #f87171;
+    background-color: rgba(239, 68, 68, 0.15);
+}
+
+body.dark-mode .empty-icon {
+    color: #4e5066;
+}
+
+body.dark-mode .empty-text {
+    color: #64748b;
+}
+
+/* Priority badge overrides for dark mode */
+body.dark-mode .priority-badge.low {
+    background-color: rgba(3, 105, 161, 0.15);
+    color: #38bdf8;
+}
+
+body.dark-mode .priority-badge.medium {
+    background-color: rgba(194, 65, 12, 0.15);
+    color: #fb923c;
+}
+
+body.dark-mode .priority-badge.high {
+    background-color: rgba(185, 28, 28, 0.15);
+    color: #f87171;
+}
+
+/* ==========================================
+   Media Queries & Responsiveness Overrides
+   ========================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .root {
+        margin-top: 60px;
+    }
+    
+    .header {
+        padding-bottom: 35px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .root {
+        margin-top: 30px;
+        padding: 0 15px;
+    }
+
+    .header {
+        padding-bottom: 25px;
+    }
+
+    .left > h1 {
+        font-size: 24px;
+        padding-bottom: 8px;
+    }
+
+    .left > p {
+        font-size: 14px;
+    }
+
+    .theme {
+        padding-top: 15px;
+    }
+
+    /* Shrink padding inside input wrapper to give more space for text */
+    .ip {
+        height: 50px;
+    }
+
+    .ip > span {
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 18px;
+    }
+
+    .ip > input {
+        font-size: 14px;
+    }
+
+    /* Shrink custom select button to avoid layout breakages */
+    .select-wrapper {
+        width: 100px;
+        margin-right: 8px;
+    }
+
+    .select-btn {
+        padding: 0 12px;
+        height: 36px;
+        font-size: 13px;
+        gap: 4px;
+    }
+    
+    /* Align mobile dropdown select inside bounds */
+    .dropdown {
+        right: -8px;
+        min-width: 120px;
+        border-radius: 10px;
+        padding: 6px;
+    }
+
+    .option {
+        padding: 10px 8px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    /* Filters spacing */
+    .filter {
+        margin-top: 25px;
+        height: 32px;
+        border-radius: 10px;
+    }
+
+    .filter > button {
+        font-size: 13px;
+        padding-left: 8px;
+        padding-right: 8px;
+        height: 22px;
+    }
+
+    .filter-btn.active {
+        border-radius: 8px;
+    }
+
+    /* Task list cards spacing and size */
+    .todo-main {
+        margin-top: 20px;
+    }
+
+    .todo-list {
+        gap: 10px;
+    }
+
+    .todo-item {
+        height: 50px;
+        padding: 0 12px;
+        border-radius: 10px;
+    }
+
+    .checkbox-btn {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+    }
+
+    .checkbox-btn.checked::after {
+        width: 4px;
+        height: 7px;
+        margin-bottom: 2px;
+    }
+
+    .todo-text {
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    .priority-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+    /* Show delete buttons always on touch devices since hover is not available */
+    .delete-btn {
+        opacity: 0.8;
+        pointer-events: auto;
+        padding: 4px;
+    }
+}
